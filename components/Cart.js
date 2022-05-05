@@ -118,7 +118,9 @@ export default function Cart({ cart, setCart }) {
                       <div className='flow-root'>
                         <ul className='-my-6 divide-y divide-gray-200'>
                           {products.map((product) => (
-                            <CartItem product={product} />
+                            <li key={product.id} className='flex py-6'>
+                              <CartItem product={product} />
+                            </li>
                           ))}
                         </ul>
                       </div>
