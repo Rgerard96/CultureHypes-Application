@@ -28,7 +28,7 @@ const products = [
   },
 ];
 
-export default function afrekenen() {
+export default function Afrekenen() {
   const router = useRouter();
   const [summary, setSummary] = useState(false);
 
@@ -126,7 +126,9 @@ export default function afrekenen() {
             <div className='flow-root border-b p-5'>
               <ul role='list' className='-my-6 divide-y divide-gray-200'>
                 {products.map((product) => (
-                  <CartItem product={product} />
+                  <li key={product.id} className='flex py-6'>
+                    <CartItem product={product} />
+                  </li>
                 ))}
               </ul>
             </div>
