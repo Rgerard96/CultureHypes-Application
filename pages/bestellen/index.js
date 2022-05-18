@@ -1,6 +1,7 @@
 import { FilterIcon } from '@heroicons/react/outline';
 import Head from 'next/head';
 import { useState } from 'react';
+import DatePicker from '../../components/DatePicker';
 import DeliveryOption from '../../components/DeliveryOption';
 import Search from '../../components/Search';
 import SellerCard from '../../components/SellerCard';
@@ -24,8 +25,8 @@ export default function Bestellen() {
         setSlideOver={setSlideOver}
         type={type}
       />
-      <div className='mb-8'>
-        <div className='h-64 w-full rounded-lg bg-blue-500'></div>
+      <div className='mb-6'>
+        <DatePicker/>
       </div>
       <div className='sm:hidden mb-5'>
         <DeliveryOption />
