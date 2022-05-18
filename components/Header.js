@@ -26,7 +26,7 @@ export default function Header() {
     setCart(!cart);
   };
 
-  console.log(session)
+  console.log(session);
 
   return (
     <div className='sticky top-0 z-10 mb-8 bg-white py-3 shadow-md'>
@@ -45,12 +45,7 @@ export default function Header() {
             />
           )}
           <ColorSwatchIcon className='mr-3 w-9 text-blue-500 sm:w-10' />
-          <h2 className='text-xl font-bold'>Food</h2>
-          <div className='hidden sm:flex items-center ml-10 space-x-10'>
-            <p className='cursor-pointer hover:text-blue-500'>Ontdekken</p>
-            <p className='cursor-pointer hover:text-blue-500'>Ontdekken</p>
-            <p className='cursor-pointer hover:text-blue-500'>Ontdekken</p>
-          </div>
+          <h2 className='text-xl font-bold mr-10'>Food</h2>
         </div>
         <div className='flex items-center divide-x'>
           <div className='flex items-center pr-5'>

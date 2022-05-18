@@ -19,7 +19,7 @@ const products = [
     id: 2,
     name: 'Medium Stuff Satchel',
     href: '#',
-    color: 'Blue',
+    color: 'blue',
     price: '€ 32.00',
     quantity: 1,
     imageSrc: '../images/food.jpg',
