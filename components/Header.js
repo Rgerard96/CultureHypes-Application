@@ -9,11 +9,12 @@ import { useRouter } from 'next/router';
 import Dropdown from './Dropdown';
 import SlideOver from './SlideOver';
 import Cart from './Cart';
+import { useSession, signIn, signOut } from 'next-auth/react';
 
 export default function Header() {
   const router = useRouter();
   const path = router.asPath.split('/');
-  const { data: session } = false;
+  const { data: session } = useSession();
   const [slideOver, setSlideOver] = useState(false);
   const [cart, setCart] = useState(false);
   const [type, setType] = useState();
@@ -24,6 +25,8 @@ export default function Header() {
   const cartHandler = () => {
     setCart(!cart);
   };
+
+  console.log(session)
 
   return (
     <div className='sticky top-0 z-10 mb-8 bg-white py-3 shadow-md'>
@@ -51,11 +54,28 @@ export default function Header() {
         </div>
         <div className='flex items-center divide-x'>
           <div className='flex items-center pr-5'>
-            <div className='hidden items-center lg:flex'>
-              <Dropdown name={session ? 'Account' : 'Inloggen'} />
-              <div className='cursor-pointer rounded-lg bg-blue-500 py-2 px-4 text-white lg:hover:bg-blue-600'>
-                Aanmelden
-              </div>
+            <div className='hidden space-x-5 items-center lg:flex'>
+              {session ? (
+                <p
+                  className='cursor-pointer hover:text-blue-500'
+                  onClick={() => signOut()}
+                >
+                  Uitloggen
+                </p>
+              ) : (
+                <>
+                  <p
+                    className='cursor-pointer hover:text-blue-500'
+                    onClick={() => signIn()}
+                  >
+                    Inloggen
+                  </p>
+                  <div className='cursor-pointer rounded-lg bg-blue-500 py-2 px-4 text-white lg:hover:bg-blue-600'>
+                    Aanmelden
+                  </div>
+                </>
+              )}
+              {/* <Dropdown name={session ? 'Account' : 'Inloggen'} /> */}
             </div>
             {path[1] === '' ? (
               ''
